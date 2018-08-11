@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "myID"
                 configuration.clientKey = "shiva"
-                configuration.server = "https://enigmatic-reaches-73301.herokuapp.com/"
+                configuration.server = "https://enigmatic-reaches-73301.herokuapp.com/parse"
             })
         )
         return true
