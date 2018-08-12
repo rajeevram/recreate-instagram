@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
             if (user != nil) {
                 print("Already logged in!")
+                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }
         }
     }
@@ -42,9 +43,10 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackground { (success, error) in
             if (success) {
                 print("New user created!")
+                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }
             else {
-                print(error!.localizedDescription)
+                print(error.debugDescription)
             }
         }
     }

@@ -18,6 +18,7 @@
 		BB17A212211E046C004094D6 /* InstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17A211211E046C004094D6 /* InstagramUITests.swift */; };
 		BB17A222211E3878004094D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17A221211E3878004094D6 /* LoginViewController.swift */; };
 		BB9B1F181C60C2E2E69E5278 /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E029125EE60BC372624885 /* Pods_InstagramTests.framework */; };
+		BBF3E1002120CD3500C40EDE /* AuthenticatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3E0FF2120CD3500C40EDE /* AuthenticatedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BB17A211211E046C004094D6 /* InstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUITests.swift; sourceTree = "<group>"; };
 		BB17A213211E046C004094D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB17A221211E3878004094D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BBF3E0FF2120CD3500C40EDE /* AuthenticatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewController.swift; sourceTree = "<group>"; };
 		E8E029125EE60BC372624885 /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AC1C54DF1CD50DD449D0EF /* Pods-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 				BB17A1F1211E046A004094D6 /* AppDelegate.swift */,
 				BB17A1F3211E046A004094D6 /* ViewController.swift */,
 				BB17A1F5211E046A004094D6 /* Main.storyboard */,
+				BBF3E0FF2120CD3500C40EDE /* AuthenticatedViewController.swift */,
 				BB17A1F8211E046C004094D6 /* Assets.xcassets */,
 				BB17A1FA211E046C004094D6 /* LaunchScreen.storyboard */,
 				BB17A1FD211E046C004094D6 /* Info.plist */,
@@ -382,6 +385,7 @@
 			files = (
 				BB17A222211E3878004094D6 /* LoginViewController.swift in Sources */,
 				BB17A1F4211E046A004094D6 /* ViewController.swift in Sources */,
+				BBF3E1002120CD3500C40EDE /* AuthenticatedViewController.swift in Sources */,
 				BB17A1F2211E046A004094D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

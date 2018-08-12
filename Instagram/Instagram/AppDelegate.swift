@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://enigmatic-reaches-73301.herokuapp.com/parse"
             })
         )
+        
+        // For persistence
+        if PFUser.current() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // view controller currently being set in Storyboard as default will be overridden
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticatedViewController")
+        }
+        
         return true
     }
 
