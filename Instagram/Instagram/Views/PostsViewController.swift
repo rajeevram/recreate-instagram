@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class AuthenticatedViewController: UIViewController {
+class PostsViewController: UIViewController {
     
     @IBOutlet weak var logoutButton: UIButton!
     
