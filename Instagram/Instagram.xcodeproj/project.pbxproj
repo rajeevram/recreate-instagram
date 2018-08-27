@@ -16,6 +16,7 @@
 		BB17A207211E046C004094D6 /* InstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17A206211E046C004094D6 /* InstagramTests.swift */; };
 		BB17A212211E046C004094D6 /* InstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17A211211E046C004094D6 /* InstagramUITests.swift */; };
 		BB17A222211E3878004094D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17A221211E3878004094D6 /* LoginViewController.swift */; };
+		BB3185BD2134B64100BE8AA0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3185BC2134B64100BE8AA0 /* PostCell.swift */; };
 		BB9B1F181C60C2E2E69E5278 /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E029125EE60BC372624885 /* Pods_InstagramTests.framework */; };
 		BBA5141B21349BED0062C979 /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA5141A21349BED0062C979 /* SelectPhotoViewController.swift */; };
 		BBA5141E21349D210062C979 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA5141D21349D210062C979 /* Post.swift */; };
@@ -60,6 +61,7 @@
 		BB17A211211E046C004094D6 /* InstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUITests.swift; sourceTree = "<group>"; };
 		BB17A213211E046C004094D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB17A221211E3878004094D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BB3185BC2134B64100BE8AA0 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		BBA5141A21349BED0062C979 /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
 		BBA5141D21349D210062C979 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BBF3E0FF2120CD3500C40EDE /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				BBA5141D21349D210062C979 /* Post.swift */,
+				BB3185BC2134B64100BE8AA0 /* PostCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				BBA5141E21349D210062C979 /* Post.swift in Sources */,
 				BB17A1F2211E046A004094D6 /* AppDelegate.swift in Sources */,
 				BBA5141B21349BED0062C979 /* SelectPhotoViewController.swift in Sources */,
+				BB3185BD2134B64100BE8AA0 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,13 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func postPhoto(_ sender: Any) {
+        let caption = captionTextField.text ?? "No Caption"
+        let image = photoSelectedImageView.image
+        Post.postUserImage(image: image, withCaption: caption) { (success, error) in
+            if (error != nil) {
+                print(error.debugDescription)
+            }
+        }
         self.performSegue(withIdentifier: "PostPhotoSegue", sender: nil)
     }
     
@@ -53,8 +60,7 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        print(originalImage)
-        print(editedImage)
+        photoSelectedImageView.image = editedImage
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
