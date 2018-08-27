@@ -29,4 +29,10 @@ class PostsViewController: UIViewController {
         }
         self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
     }
+    
+    @IBAction func onCreateNewPost(_ sender: Any) {
+        self.performSegue(withIdentifier: "CreateNewPostSegue", sender: nil)
+    }
+    
+    
 }

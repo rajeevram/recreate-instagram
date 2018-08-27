@@ -29,6 +29,7 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func postPhoto(_ sender: Any) {
+        self.performSegue(withIdentifier: "PostPhotoSegue", sender: nil)
     }
     
     func selectPhoto() {
@@ -52,7 +53,8 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        // Do something with the images (based on your use case)
+        print(originalImage)
+        print(editedImage)
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
