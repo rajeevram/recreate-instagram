@@ -8,10 +8,10 @@ This project is a reproduction of the Instagram mobile application using my own 
 - [X] User can log in and log out of his or her account
 - [X] The current signed in user is persisted across app restarts
 - [X] User can take a photo, add a caption, and post it to Instagram
-- [ ] User can view the last 20 posts submitted to Instagram
+- [X] User can view the last 20 posts submitted to Instagram
 - [ ] User can pull to refresh the last 20 posts submitted to Instagram
 - [ ] User can tap a post to view post details, including timestamp and caption
-- [ ] User can see alerts for various error conditions
+- [X] User can see alerts for various error conditions
 
 
 ## Walkthrough

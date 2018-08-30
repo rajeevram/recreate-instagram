@@ -30,8 +30,10 @@ class LoginViewController: UIViewController {
     @IBAction func onSignIn(_ sender: Any) {
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
             if (user != nil) {
-                //print("Already logged in!")
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+            }
+            else {
+                self.displayLoginErrorAlert()
             }
         }
     }
@@ -42,14 +44,41 @@ class LoginViewController: UIViewController {
         newUser.password = passwordTextField.text!
         newUser.signUpInBackground { (success, error) in
             if (success) {
-                //print("New user created!")
+                self.displaySignupSuccessAlert()
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }
             else {
-                print(error.debugDescription)
+                self.displaySignupErrorAlert()
             }
         }
     }
     
+    // Display Alert Methods
+    func displayLoginErrorAlert() {
+        let alertController = UIAlertController(title: "Login Failed!", message: "Please enter a valid username and password combination.", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Try Again", style: .default)
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true) {
+            self.usernameTextField.text = ""
+            self.passwordTextField.text = ""
+        }
+    }
+    
+    func displaySignupErrorAlert() {
+        let alertController = UIAlertController(title: "Signup Failed!", message: "That username is already taken. Please choose another one.", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Try Again", style: .default)
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true) {
+            self.usernameTextField.text = ""
+            self.passwordTextField.text = ""
+        }
+    }
+    
+    func displaySignupSuccessAlert() {
+        let alertController = UIAlertController(title: "Signup Successfuly!", message: "New account created.", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Continue", style: .default)
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true) { }
+    }
     
 }

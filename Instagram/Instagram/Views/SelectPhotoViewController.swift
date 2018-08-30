@@ -38,6 +38,10 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
         let caption = captionTextField.text ?? ""
         let image = photoSelectedImageView.image
         if (!photoSelected) {
+            let alertController = UIAlertController(title: "Photo Not Chosen", message: "Please choose a photo to create a new post.", preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .default)
+            alertController.addAction(dismissAction)
+            present(alertController, animated: true) { }
             return;
         }
         Post.postUserImage(image: image, withCaption: caption) { (success, error) in
