@@ -30,7 +30,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BJ-ED-0qi">
                                 <rect key="frame" x="164" y="236" width="47" height="18"/>
@@ -158,25 +158,37 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdX-cS-gGG">
-                                <rect key="frame" x="172" y="617" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post"/>
-                                <connections>
-                                    <action selector="postPhoto:" destination="d0P-GV-odz" eventType="touchUpInside" id="z5j-7S-LEO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-t9-nyE">
-                                <rect key="frame" x="143" y="579" width="88" height="30"/>
+                                <rect key="frame" x="143" y="356" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Photo"/>
                                 <connections>
                                     <action selector="loadCameraPhotoLibrary:" destination="d0P-GV-odz" eventType="touchUpInside" id="k1o-cF-0uv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1R-M6-yct">
+                                <rect key="frame" x="163" y="617" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelNewPost:" destination="d0P-GV-odz" eventType="touchUpInside" id="kIo-M6-BrI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdX-cS-gGG">
+                                <rect key="frame" x="147" y="579" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Post"/>
+                                <connections>
+                                    <action selector="postPhoto:" destination="d0P-GV-odz" eventType="touchUpInside" id="z5j-7S-LEO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="FNT-QU-FHN"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kcR-4Z-1Uj" appends="YES" id="GXS-Js-FDh"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="captionTextField" destination="1ZL-hO-nw1" id="skN-qz-bgo"/>
@@ -185,6 +197,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtH-FW-CWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kcR-4Z-1Uj">
+                    <connections>
+                        <action selector="endEditingCaption:" destination="d0P-GV-odz" id="SAk-7E-IQP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1615.2" y="133.5832083958021"/>
         </scene>

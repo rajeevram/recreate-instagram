@@ -14,6 +14,8 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var photoSelectedImageView: UIImageView!
     @IBOutlet weak var captionTextField: UITextField!
     
+    // Backend Logic Variables
+    var photoSelected : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +30,25 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
         self.selectPhoto()
     }
     
+    @IBAction func endEditingCaption(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     @IBAction func postPhoto(_ sender: Any) {
-        let caption = captionTextField.text ?? "No Caption"
+        let caption = captionTextField.text ?? ""
         let image = photoSelectedImageView.image
+        if (!photoSelected) {
+            return;
+        }
         Post.postUserImage(image: image, withCaption: caption) { (success, error) in
             if (error != nil) {
                 print(error.debugDescription)
             }
         }
+        self.performSegue(withIdentifier: "PostPhotoSegue", sender: nil)
+    }
+    
+    @IBAction func cancelNewPost(_ sender: Any) {
         self.performSegue(withIdentifier: "PostPhotoSegue", sender: nil)
     }
     
@@ -61,6 +74,7 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         photoSelectedImageView.image = editedImage
+        photoSelected = true
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
