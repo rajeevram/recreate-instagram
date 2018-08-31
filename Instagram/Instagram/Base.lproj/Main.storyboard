@@ -61,14 +61,72 @@
                         <outlet property="signInButton" destination="7BJ-ED-0qi" id="nrZ-3R-SeU"/>
                         <outlet property="signUpButton" destination="daA-NY-Ggq" id="6JO-fe-FV6"/>
                         <outlet property="usernameTextField" destination="mPA-b2-GKb" id="0uz-66-bUM"/>
-                        <segue destination="71m-bd-A0b" kind="presentation" identifier="LoginSegue" id="2MN-4k-G6l"/>
+                        <segue destination="71m-bd-A0b" kind="presentation" identifier="LoginSegue" id="EHB-e2-YSn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Posts View Controller-->
+        <!--Detail View Controller-->
+        <scene sceneID="nEX-9P-AQD">
+            <objects>
+                <viewController id="w0S-VQ-ZJC" customClass="DetailViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4CZ-ff-w1h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJ5-Ny-9kW">
+                                <rect key="frame" x="8" y="103" width="359" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The caption goes here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Kj-kHj">
+                                <rect key="frame" x="8" y="361" width="359" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The time stamp." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz1-BM-8xe">
+                                <rect key="frame" x="8" y="390" width="359" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Post Details" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pg7-yF-Kkr">
+                                <rect key="frame" x="8" y="38" width="357" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-zw-kj4">
+                                <rect key="frame" x="8" y="69" width="38" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="onBackButton:" destination="w0S-VQ-ZJC" eventType="touchUpInside" id="lgB-Yy-Yvy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fIx-25-h7O"/>
+                    </view>
+                    <connections>
+                        <outlet property="captionLabel" destination="Flf-Kj-kHj" id="Akg-rk-LVL"/>
+                        <outlet property="detailImageView" destination="jJ5-Ny-9kW" id="d05-4n-Kbd"/>
+                        <outlet property="timeStampLabel" destination="pz1-BM-8xe" id="zkk-wQ-eRs"/>
+                        <segue destination="71m-bd-A0b" kind="presentation" identifier="BackToPhotoFeed" id="RUb-tA-hFw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p7i-aa-2p6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="-579"/>
+        </scene>
+        <!--My Photo Feed-->
         <scene sceneID="sXD-yx-gVP">
             <objects>
                 <viewController storyboardIdentifier="AuthenticatedViewController" id="71m-bd-A0b" customClass="PostsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,70 +134,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymQ-5m-wFk">
-                                <rect key="frame" x="16" y="20" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Out"/>
-                                <connections>
-                                    <action selector="onSignOut:" destination="71m-bd-A0b" eventType="touchUpInside" id="8nK-Dr-edy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqT-m9-juc">
-                                <rect key="frame" x="244" y="20" width="115" height="30"/>
+                                <rect key="frame" x="239" y="74" width="129" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Create New Post"/>
                                 <connections>
                                     <action selector="onCreateNewPost:" destination="71m-bd-A0b" eventType="touchUpInside" id="MOo-k1-UdT"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dhI-I2-HsQ">
-                                <rect key="frame" x="16" y="58" width="343" height="589"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="270" id="Ocb-Vy-he7" customClass="PostCell" customModule="Instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="270"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="300" id="Ocb-Vy-he7" customClass="PostCell" customModule="Instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ocb-Vy-he7" id="C1V-DE-RbR">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="269.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Yq-MT-5qc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="228"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The caption goes here." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVA-Qh-NrJ">
-                                                    <rect key="frame" x="0.0" y="236" width="343" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="The caption goes here." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVA-Qh-NrJ">
+                                                    <rect key="frame" x="8" y="266" width="359" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Yq-MT-5qc">
+                                                    <rect key="frame" x="8" y="8" width="359" height="250"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="250" id="2S6-3P-go3"/>
+                                                        <constraint firstAttribute="width" constant="359" id="tEQ-bW-PH8"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GVA-Qh-NrJ" firstAttribute="leading" secondItem="4Yq-MT-5qc" secondAttribute="leading" id="D44-Yb-Ddb"/>
+                                                <constraint firstItem="4Yq-MT-5qc" firstAttribute="leading" secondItem="C1V-DE-RbR" secondAttribute="leading" constant="8" id="FW8-Mj-UOK"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GVA-Qh-NrJ" secondAttribute="bottom" constant="8" id="Ie7-l7-Ke6"/>
+                                                <constraint firstItem="GVA-Qh-NrJ" firstAttribute="top" secondItem="4Yq-MT-5qc" secondAttribute="bottom" constant="8" id="JS3-g9-PeS"/>
+                                                <constraint firstItem="GVA-Qh-NrJ" firstAttribute="trailing" secondItem="4Yq-MT-5qc" secondAttribute="trailing" id="OEc-sx-bVI"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Yq-MT-5qc" secondAttribute="trailing" constant="8" id="ygy-VV-h6f"/>
+                                                <constraint firstItem="4Yq-MT-5qc" firstAttribute="top" secondItem="C1V-DE-RbR" secondAttribute="top" constant="8" id="zbS-Bl-yuk"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="GVA-Qh-NrJ" id="BqW-Gi-cgr"/>
                                             <outlet property="postImageView" destination="4Yq-MT-5qc" id="nu8-pt-hMG"/>
+                                            <segue destination="w0S-VQ-ZJC" kind="show" identifier="SegueToDetailView" id="NcP-2T-SWp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="My Photo Feed" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doS-K9-z2K">
+                                <rect key="frame" x="7" y="39" width="361" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymQ-5m-wFk">
+                                <rect key="frame" x="7" y="74" width="67" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="onSignOut:" destination="71m-bd-A0b" eventType="touchUpInside" id="8nK-Dr-edy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="mbJ-wM-f1M"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Photo Feed" id="yBu-FT-ETt" userLabel="My PhotoFeed"/>
                     <connections>
                         <outlet property="logoutButton" destination="ymQ-5m-wFk" id="rN0-Ss-nlv"/>
                         <outlet property="postsTableView" destination="dhI-I2-HsQ" id="B7U-p3-L4i"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="LogoutSegue" id="FwY-Ha-Vui"/>
-                        <segue destination="d0P-GV-odz" kind="presentation" identifier="CreateNewPostSegue" id="SOc-V2-xLy"/>
+                        <segue destination="d0P-GV-odz" kind="presentation" identifier="CreateNewPostSegue" id="veB-iv-Hv6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EoE-Cx-7MY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872.79999999999995" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1010" y="134"/>
         </scene>
-        <!--Select Photo View Controller-->
+        <!--Create New Post-->
         <scene sceneID="5Id-Sv-cAH">
             <objects>
                 <viewController id="d0P-GV-odz" customClass="SelectPhotoViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,40 +229,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-Gr-SW4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="278"/>
+                                <rect key="frame" x="8" y="76" width="359" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ZL-hO-nw1">
-                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <rect key="frame" x="8" y="334" width="359" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-t9-nyE">
-                                <rect key="frame" x="143" y="356" width="88" height="30"/>
+                                <rect key="frame" x="132" y="372" width="111" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Select Photo"/>
                                 <connections>
                                     <action selector="loadCameraPhotoLibrary:" destination="d0P-GV-odz" eventType="touchUpInside" id="k1o-cF-0uv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1R-M6-yct">
-                                <rect key="frame" x="163" y="617" width="48" height="30"/>
+                                <rect key="frame" x="163" y="620" width="53" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelNewPost:" destination="d0P-GV-odz" eventType="touchUpInside" id="kIo-M6-BrI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdX-cS-gGG">
-                                <rect key="frame" x="147" y="579" width="81" height="30"/>
+                                <rect key="frame" x="143" y="578" width="90" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Create Post"/>
                                 <connections>
                                     <action selector="postPhoto:" destination="d0P-GV-odz" eventType="touchUpInside" id="z5j-7S-LEO"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Create New Post" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzO-oc-rQb">
+                                <rect key="frame" x="8" y="38" width="359" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -190,10 +282,11 @@
                             <outletCollection property="gestureRecognizers" destination="kcR-4Z-1Uj" appends="YES" id="GXS-Js-FDh"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Create New Post" id="sCd-fi-KlJ"/>
                     <connections>
                         <outlet property="captionTextField" destination="1ZL-hO-nw1" id="skN-qz-bgo"/>
                         <outlet property="photoSelectedImageView" destination="MCT-Gr-SW4" id="eKN-OT-sDj"/>
-                        <segue destination="71m-bd-A0b" kind="presentation" identifier="PostPhotoSegue" id="9uL-05-cYc"/>
+                        <segue destination="71m-bd-A0b" kind="presentation" identifier="PostPhotoSegue" id="Bzr-m0-23c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GtH-FW-CWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,15 +296,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1615.2" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1824.8" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
-        <image name="image_placeholder" width="375" height="375"/>
+        <image name="image_placeholder" width="500" height="375"/>
         <image name="top_login_view" width="278" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SOc-V2-xLy"/>
-        <segue reference="9uL-05-cYc"/>
+        <segue reference="RUb-tA-hFw"/>
     </inferredMetricsTieBreakers>
 </document>

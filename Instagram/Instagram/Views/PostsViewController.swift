@@ -14,28 +14,40 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // UI, UX Outlet Variables
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var postsTableView: UITableView!
+    var refreshControl: UIRefreshControl!
     
     // Backend Logic Variables
     var posts: [Post] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup pull-to-refresh functionality
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(fetchPostsData), for: .valueChanged)
+        postsTableView.insertSubview(refreshControl, at: 0)
+        
+        // Setup delegate, data source, and dimensions
         postsTableView.delegate = self as UITableViewDelegate
         postsTableView.dataSource = self as UITableViewDataSource
-        postsTableView.rowHeight = 270
+        postsTableView.rowHeight = UITableViewAutomaticDimension
+        postsTableView.estimatedRowHeight = 100
+        
+        // Retrieve posts and update table view
         fetchPostsData()
+        postsTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func fetchPostsData() {
+    @objc func fetchPostsData() {
         // Create New PFQuery
         let query = Post.query()
         query?.order(byDescending: "createdAt")
         query?.includeKey("author")
+        query?.includeKey("createdAt")
         query?.limit = 20
         
         // Fetch data asynchronously
@@ -43,6 +55,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if let posts = posts {
                 self.posts = posts as! [Post]
                 self.postsTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
             else {
                 print(error.debugDescription)
@@ -73,6 +86,7 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = postsTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         let post = posts[indexPath.row]
+        cell.indexPath = indexPath
         if let imageFile : PFFile = post.media {
             imageFile.getDataInBackground { (data, error) in
                 if (error != nil) {
@@ -87,4 +101,11 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    // Segue To Detail View
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as? DetailViewController
+        if let cell = sender as! PostCell? {
+            dvc?.post = posts[(cell.indexPath?.row)!]
+        }
+    }
 }

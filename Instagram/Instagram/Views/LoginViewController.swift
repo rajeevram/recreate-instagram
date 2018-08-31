@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackground { (success, error) in
             if (success) {
                 self.displaySignupSuccessAlert()
-                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                //self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }
             else {
                 self.displaySignupErrorAlert()
@@ -75,8 +75,10 @@ class LoginViewController: UIViewController {
     }
     
     func displaySignupSuccessAlert() {
-        let alertController = UIAlertController(title: "Signup Successfuly!", message: "New account created.", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Continue", style: .default)
+        let alertController = UIAlertController(title: "Signup Successful!", message: "New account created.", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Continue", style: .default) { (action) in
+            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+        }
         alertController.addAction(dismissAction)
         present(alertController, animated: true) { }
     }

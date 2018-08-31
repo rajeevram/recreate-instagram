@@ -12,6 +12,7 @@ class PostCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    var indexPath : IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
