@@ -14,24 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Initialize Parse
-        // Set applicationId and server based on the values in the Heroku settings.
-        // clientKey is not used on Parse open source unless explicitly configured
+        // Initialize the credentials for Parse database:
+            // 1. Set applicationId and server based on the values in the Heroku settings
+            // 2. clientKey is not used on Parse open source unless explicitly configured
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "myID"
-                configuration.clientKey = "shiva"
+                configuration.applicationId = "ThisIsMyApplicationID"
+                configuration.clientKey = "ThisIsMyMasterKey"
                 configuration.server = "https://enigmatic-reaches-73301.herokuapp.com/parse"
             })
         )
         
-        // For persistence
+        // For user persistence: check if a user is already logged in; if so, then we perform a modal
+        // segue straight to the PostsViewController.
         if PFUser.current() != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // view controller currently being set in Storyboard as default will be overridden
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticatedViewController")
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "PostsViewController")
         }
         
         return true

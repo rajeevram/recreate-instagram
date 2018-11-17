@@ -11,13 +11,16 @@ import Parse
 
 class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // UI, UX Outlet Variables
+    /*----------UI, UX Outlet Variables----------*/
+    
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var postsTableView: UITableView!
     var refreshControl: UIRefreshControl!
     
-    // Backend Logic Variables
+    /*----------Backend Support Fields----------*/
     var posts: [Post] = []
+    
+    /*----------ViewDidLoad() Method----------*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,48 +39,60 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Retrieve posts and update table view
         fetchPostsData()
         postsTableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        
     }
     
+    /*----------Network Request Method----------*/
+    
+    // This method is called to retrieve the information from Parse
     @objc func fetchPostsData() {
-        // Create New PFQuery
+        
+        // Create a new Parse query and specify the parameters of the request
         let query = Post.query()
         query?.order(byDescending: "createdAt")
         query?.includeKey("author")
         query?.includeKey("createdAt")
         query?.limit = 20
         
-        // Fetch data asynchronously
+        // Fetch the data asynchronously from Parse
         query?.findObjectsInBackground(block: { (posts, error) in
+            // If we were able to retrieve the data...
             if let posts = posts {
+                // ...populate the array of posts declared in this class
                 self.posts = posts as! [Post]
+                // ...and refresh the table view
                 self.postsTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
+            // Otherwise, find out what went wrong.
             else {
                 print(error.debugDescription)
             }
         })
     }
     
-    // Event Handlers
+    /*----------Event Handlers----------*/
+    
+    // This function is called when the sign-out button is pressed
     @IBAction func onSignOut(_ sender: Any) {
+        // Call static Parse method to logout asynchronously
         PFUser.logOutInBackground { (error) in
+            // Check for some sort of error
             if (error != nil) {
                 print(error.debugDescription)
             }
         }
+        // Perform modal segue with given Storyboard ID if successful
         self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
     }
     
+    // This function is called when the new post button is pressed, and
+    // perfoms a modal segue to the SelectPhotoViewController
     @IBAction func onCreateNewPost(_ sender: Any) {
         self.performSegue(withIdentifier: "CreateNewPostSegue", sender: nil)
     }
     
-    // Delegate,Protocol Methods
+    /*----------Table View Methods----------*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -101,11 +116,13 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    // Segue To Detail View
+    /*----------Prepare For Segue----------*/
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dvc = segue.destination as? DetailViewController
         if let cell = sender as! PostCell? {
             dvc?.post = posts[(cell.indexPath?.row)!]
         }
     }
+    
 }
